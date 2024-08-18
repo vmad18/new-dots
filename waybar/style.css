@@ -1,0 +1,292 @@
+@import "colors.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Material Icons", "Font Awesome", monospace;
+  font-weight: bold;
+  font-size: 13px;
+  min-height: 0px;
+}
+
+
+
+window#waybar {
+  background: transparent; 
+  /* rgba(0, 0, 0, 0.1) */
+  /* opacity: 0.9; */
+  /* color: #cdd6f4; */
+}
+
+
+
+#workspaces button {
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  color: @text;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+
+#workspaces button.active {
+  background: @bg1;
+  color: @accent;
+  margin-left: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+
+#workspaces button:hover {
+  background: @bg1;
+  color: @accent;
+  padding-left: 3px;
+  padding-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+
+#taskbar button {
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  color: @accent;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+
+#taskbar button.active {
+  background: @bg1;
+  color: @accent;
+  margin-left: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  /* margin-right: 3px; */
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+
+#taskbar button:hover {
+  background: @bg1;
+  color: @accent;
+  padding-left: 3px;
+  padding-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+
+
+tooltip {
+  background: @tip;
+  border-radius: 10px;
+  border: 1.5px solid @accent;
+}
+
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+	50% {
+    background-position: 100% 50%;
+  }
+	100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+#custom-language, 
+#custom-updates, 
+#custom-caffeine, 
+#custom-power, 
+#clock, 
+#battery, 
+#pulseaudio, 
+#network, 
+#workspaces, 
+#tray, 
+#backlight, 
+#custom-menu, 
+#custom-wl-gammarelay-brightness, 
+#custom-wl-gammarelay-temperature, 
+#custom-spotify, 
+#cpu, 
+#memory,
+#taskbar,
+#custom-updates, 
+#window {
+  background: @bg0;
+  opacity: 1;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  border: 1.8px solid @accent;
+  border-radius: 10px;
+}
+
+
+
+#tray {
+	/* margin-left: 5px; */
+  margin-right: 5px;
+	padding-left: 10px;
+	margin-bottom: 3px;
+	padding-right: 10px;
+	transition: none;
+}
+
+
+
+#workspaces {
+  padding-right: 10px;
+  padding-left: 5px;
+  /* margin-left: 5px; */
+}
+
+
+
+#taskbar {
+  padding-right: 10px;
+  padding-left: 5px;
+  margin-left: 5px;
+}
+
+
+
+#clock {
+  color: @text;
+  border-radius: 10px;
+}
+
+
+
+#cpu {
+  color: @text;
+  margin-right: 5px;
+}
+
+
+
+#memory {
+  color: @text;
+  margin-right: 5px;
+}
+
+
+
+#network {
+  color: @text;
+  margin-left: 5px;
+}
+
+
+
+#custom-spotify {
+  color: @text;
+  margin-left: 5px;
+}
+
+
+
+#pulseaudio {
+  color: @text;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+
+#battery {
+  color:  @text;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+
+#backlight {
+  color: @text;
+}
+
+
+
+#custom-power {
+  color: @text;
+  margin-left: 5px;
+}
+
+
+
+#custom-wl-gammarelay-brightness {
+  color: @text;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+
+#custom-wl-gammarelay-temperature {
+  color: @text;
+  margin-right: 3px;
+}
+
+
+
+#custom-menu {
+  color: @text;
+  margin-right: 5px;
+}
+
+
+#custom-updates {
+  color: @text;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+#window{
+  color: @text;
+  margin-right: 5px;
+}
+
+
+
+#custom-cycle_wall{
+  background: rgb(155, 214, 255);
+  background: linear-gradient(45deg, rgba(155, 214, 255, 1) 0%, rgba(155, 214, 255, 0.9870801033591732) 35%, rgba(155,164,255,1) 87%, rgba(155, 214, 255, 1) 90%);  color: @text;
+  background-size: 500% 500%;
+  animation: gradient 5s linear infinite;
+  font-weight:  bolder;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+

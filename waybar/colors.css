@@ -1,0 +1,23 @@
+@define-color bg0   #211a17;
+@define-color bg1   #362f2b;
+@define-color tip   #221e1b;
+@define-color accent #9BD6FF;
+@define-color text #cdd6f4;
+
+
+@define-color bar-bg rgba(0, 0, 0, 0);
+
+@define-color main-color #4c4f69;
+@define-color main-bg #9ca0b0;
+
+@define-color tool-bg #9ca0b0;
+@define-color tool-color #4c4f69;
+@define-color tool-border #ccd0da;
+
+
+
+/*
+#2A6F8A
+text - ffffff
+accent - ffbf9b
+*/
