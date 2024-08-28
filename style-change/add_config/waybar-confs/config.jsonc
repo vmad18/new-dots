@@ -5,52 +5,38 @@
   "mod": "dock",
   
   "modules-left":   [ 
-                      "tray", 
-                      "hyprland/workspaces", 
-                      "network", 
+                      "pulseaudio",
+                      "hyprland/workspaces",
                       "custom/spotify"],
  
 
-  "modules-center": [ 
-                      "custom/menu", 
-                      "clock", 
-                      "custom/power" ],
+  "modules-center": [
+                    ],
   
 
-  "modules-right":  [ 
-                      "custom/wl-gammarelay-temperature", 
-                      "custom/wl-gammarelay-brightness", 
+  "modules-right":  [
+
                       "custom/cycle_wall", 
-                      "custom/updates", 
-                      "cpu", 
-                      "memory", 
-                      "pulseaudio", 
-                      "battery" ],
+                      "clock",
+                      "group/hardware",
+                      "tray"],
 
 
   "hyprland/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate",
-    "persistent_workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": [],
-        "6": [],
-        "7": [],
-        "8": [],
-        "9": [],
-        "10": []
-    }
+    "on-click": "activate"
+
+  },
+  
+  "hyprland/window": {
+    "max-length": 15
   },
 
 
   "custom/updates": {
     "format": "󰮯 {}",
-    "exec": "~/.config/waybar/scripts/check_update/systemupdate.sh",
-    "on-click": "~/.config/waybar/scripts/check_update/systemupdate.sh up",
+    "exec": "~/.config/sys-scripts/check_update/systemupdate.sh",
+    "on-click": "~/.config/sys-scripts/check_update/systemupdate.sh up",
     "interval": 86400, // once every day
     "tooltip": true
   },
@@ -104,7 +90,7 @@
 
 
   "clock": {
-    "format": "{: %I:%M %p   %m/%d}",
+    "format": " {:%I:%M %p - %b/%d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
@@ -154,8 +140,8 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [" ", " ", " "],
-  },
+      "default": [" ", " ", " "]
+    },
     "on-click": "pamixer --default-source -t",
     "on-scroll-up": "pamixer -i 5 ",
     "on-scroll-down": "pamixer -d 5",
@@ -165,25 +151,26 @@
   },
 
 
-  "custom/power": {
-    "format": "⏻ ",
-    "tooltip": false,
-    "on-click": "~/.config/hypr/scripts/powermenu.sh"
-  },
-
-
-  "custom/menu": {
-    "format": "󰣇 ",
-    "tooltip": false,
-    "on-click": "rofi -show"
-  },
-
-
   "custom/wl-gammarelay-temperature": {
     "format": "{} ",
     "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+  },
+ 
+
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "cpu",
+      "memory",
+      "custom/updates"
+    ]
   },
 
 
@@ -197,28 +184,33 @@
 
   // /usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify
   "custom/spotify": {
-    "exec": "sh ~/.config/waybar/scripts/spotify/scroll_status.sh",
+    "exec": "sh ~/.config/sys-scripts/spotify/scroll_status.sh",
     "format": " | {}",
-    // "tooltip-format": "",
     "tooltip": false,
-    // "return-type": "json",
     "on-click": "playerctl play-pause --player=spotify",
     "on-scroll-up": "playerctl next --player=spotify",
     "on-scroll-down": "playerctl previous --player=spotify"
   },
 
 
-  "custom/dynamic_pill": {
-    "return-type": "json",
-    // "format":"{}",
-    "escape":true
-  },
-
 
   "custom/cycle_wall":{
-    "format":" ",
+    "format": "󰣇 ",
     // "interval": 1,
-    "on-click": "python3 ~/.config/waybar/scripts/background/background.py",
+    "on-click": "python3 ~/.config/sys-scripts/background/background.py",
     "tooltip": false
   }
 }
+
+
+  // "custom/power": {
+  //   "format": "⏻ ",
+  //   "tooltip": false,
+  //   "on-click": "~/.config/hypr/scripts/powermenu.sh"
+  // },
+
+
+  // "custom/menu": {
+  //   "tooltip": false,
+  //   "on-click": "rofi -show"
+  // },
