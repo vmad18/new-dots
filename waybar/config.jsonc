@@ -11,40 +11,20 @@
  
 
   "modules-center": [
-                      ],
+                    ],
   
 
-  "modules-right":  [ 
-                      "custom/wl-gammarelay-temperature", 
-                      "custom/wl-gammarelay-brightness", 
+  "modules-right":  [
+
                       "custom/cycle_wall", 
-                      "clock", 
-                      "custom/updates",  
+                      "clock",
+                      "group/hardware",
                       "tray"],
 
 
-
-  // "hyprland/workspaces": {
-  //   "disable-scroll": true,
-  //   "all-outputs": true,
-  //   "on-click": "activate",
-  //   "persistent_workspaces": {
-  //       "1": [],
-  //       "2": [],
-  //       "3": [],
-  //       "4": [],
-  //       "5": [],
-  //       "6": [],
-  //       "7": [],
-  //       "8": [],
-  //       "9": [],
-  //       "10": []
-  //   }
-  // },
-
   "hyprland/workspaces": {
     "disable-scroll": true,
-    "on-click": "activate",
+    "on-click": "activate"
 
   },
   
@@ -110,7 +90,7 @@
 
 
   "clock": {
-    "format": " {:%I:%M %p   %m/%d}",
+    "format": " {:%I:%M %p - %b/%d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
@@ -160,7 +140,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [" ", " ", " "],
+      "default": [" ", " ", " "]
     },
     "on-click": "pamixer --default-source -t",
     "on-scroll-up": "pamixer -i 5 ",
@@ -171,24 +151,26 @@
   },
 
 
-  // "custom/power": {
-  //   "format": "⏻ ",
-  //   "tooltip": false,
-  //   "on-click": "~/.config/hypr/scripts/powermenu.sh"
-  // },
-
-
-  // "custom/menu": {
-  //   "tooltip": false,
-  //   "on-click": "rofi -show"
-  // },
-
-
   "custom/wl-gammarelay-temperature": {
     "format": "{} ",
     "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+  },
+ 
+
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "cpu",
+      "memory",
+      "custom/updates"
+    ]
   },
 
 
@@ -204,20 +186,12 @@
   "custom/spotify": {
     "exec": "sh ~/.config/sys-scripts/spotify/scroll_status.sh",
     "format": " | {}",
-    // "tooltip-format": "",
     "tooltip": false,
-    // "return-type": "json",
     "on-click": "playerctl play-pause --player=spotify",
     "on-scroll-up": "playerctl next --player=spotify",
     "on-scroll-down": "playerctl previous --player=spotify"
   },
 
-
-  "custom/dynamic_pill": {
-    "return-type": "json",
-    // "format":"{}",
-    "escape":true
-  },
 
 
   "custom/cycle_wall":{
@@ -227,3 +201,16 @@
     "tooltip": false
   }
 }
+
+
+  // "custom/power": {
+  //   "format": "⏻ ",
+  //   "tooltip": false,
+  //   "on-click": "~/.config/hypr/scripts/powermenu.sh"
+  // },
+
+
+  // "custom/menu": {
+  //   "tooltip": false,
+  //   "on-click": "rofi -show"
+  // },

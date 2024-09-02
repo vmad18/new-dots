@@ -102,7 +102,7 @@ alias py_ml="source ml-stuff/bin/activate"
 # alias update="sh ~/hypr-dotfiles/update_conf.sh"
 # alias gvim="env -u WAYLAND_DISPLAY neovide && exit"
 # alias ctheme="sh ~/.config/hypr/scripts/theme_changer.sh $1"
-sh ~/.config/sys-scripts/neofetch_bg.sh $(cat ~/.config/sys-scripts/background/bg.txt)
+sh ~/.config/sys-scripts/neofetch_bg.sh $(cat ~/.background.md)
 # neofetch --source ~/.config/Backgrounds/skelly.jpg --size 250px
 # User configuration
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
@@ -110,6 +110,9 @@ ZSH_HIGHLIGHT_STYLES[function]='fg=green'
 ZSH_HIGHLIGHT_STYLES[command]='fg=green'
 export ml_env="/home/v18/Documents/GitHub/j-tools/ml-stuff2/bin/activate"
 alias ml_env="source '$(echo $ml_env)'"
+alias change_bg="sh ~/.config/sys-scripts/background/randbg.sh $1"
+alias img_view="sxiv $1"
+alias save-style="sh ~/.config/style-change/save_current_state.sh $1"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
