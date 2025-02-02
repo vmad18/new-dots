@@ -108,11 +108,13 @@ sh ~/.config/sys-scripts/neofetch_bg.sh $(cat ~/.background.md)
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
 ZSH_HIGHLIGHT_STYLES[function]='fg=green'
 ZSH_HIGHLIGHT_STYLES[command]='fg=green'
-export ml_env="/home/v18/Documents/GitHub/j-tools/ml-stuff2/bin/activate"
+export ml_env="/home/v18/Documents/Code/ml/ml-env/bin/activate"
 alias ml_env="source '$(echo $ml_env)'"
 alias change_bg="sh ~/.config/sys-scripts/background/randbg.sh $1"
 alias img_view="sxiv $1"
 alias save-style="sh ~/.config/style-change/save_current_state.sh $1"
+alias docker="sudo docker"
+alias shellm="~/./shellm"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
