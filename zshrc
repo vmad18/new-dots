@@ -71,14 +71,18 @@ ZSH_THEME="zap-prompt"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-source ~/.oh-my-zsh/plugins/supercharge/supercharge.plugin.zsh
+# source ~/.oh-my-zsh/plugins/supercharge/supercharge.plugin.zsh
 
-plugins=(
-	git
-	supercharge
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+plug "zap-zsh/zap-prompt"
+plug "zsh-users/zsh-syntax-highlighting"
+
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
 
 ctheme() {
   sh ~/.config/hypr/scripts/theme_changer.sh $1
